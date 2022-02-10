@@ -20,7 +20,7 @@ function IndexToggleButton({ onChange }) {
       color="warning"
       sx={{
         borderRadius: "8px",
-        width: "95%",
+        width: "100%",
       }}
     >
       <ToggleButton
@@ -30,7 +30,7 @@ function IndexToggleButton({ onChange }) {
           border: "none",
           padding: "10px 20px",
           marging: "0",
-          width: "50%",
+          width: "30%",
         }}
       >
         Pré
@@ -42,7 +42,7 @@ function IndexToggleButton({ onChange }) {
           border: "none",
           padding: "10px 20px",
           marging: "0",
-          width: "50%",
+          width: "30%",
         }}
       >
         Pós
@@ -54,7 +54,7 @@ function IndexToggleButton({ onChange }) {
           border: "none",
           padding: "10px 20px",
           marging: "0",
-          width: "50%",
+          width: "40%",
         }}
       >
         Fixado

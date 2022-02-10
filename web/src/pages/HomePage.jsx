@@ -6,6 +6,7 @@ import MaskedInput from "../components/MaskedInput";
 import { Button } from "@mui/material";
 import info from "../img/info.svg";
 import "../css/style.css";
+import "../css/responsivel.css";
 
 function HomePage() {
   const [listaSimulacao, setListaSimulacao] = useState("");
@@ -175,7 +176,7 @@ function HomePage() {
                   color="inherit"
                   onClick={handleClear}
                 >
-                  Limpar Campos
+                  Limpar
                 </Button>
               </div>
               <div className="col2">
@@ -235,7 +236,7 @@ function HomePage() {
             <div className="results">
               <div className="card">
                 <h3>Valor Final Bruto</h3>
-                {/* <span>R$ {valorBruto()}</span> */}
+                <span>R$ 15000,00</span>
               </div>
               <div className="card">
                 <h3>Alíquota do IR</h3>

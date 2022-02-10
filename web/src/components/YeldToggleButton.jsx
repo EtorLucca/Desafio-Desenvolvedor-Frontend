@@ -20,7 +20,7 @@ function YieldToggleButton({ onChange }) {
       color="warning"
       sx={{
         borderRadius: "8px",
-        width: "90%",
+        width: "100%",
       }}
     >
       <ToggleButton

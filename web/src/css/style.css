@@ -27,19 +27,20 @@ body{
 .simulator{
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   width: 100%;
 }
 
 .col1{
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 47%;
 }
 
 .col2{
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 47%;
 }
 
 .title{
@@ -74,7 +75,7 @@ h4{
 .textField{
   border: none;
   border-bottom: 1px solid #000;
-  width: 90%;
+  width: 100%;
   background-color: #EBEBEB;
 }
 
@@ -93,7 +94,7 @@ h4{
 }
 
 #btn-clear, #btn-submit{
-  width: 90%;
+  width: 100%;
   margin-top: 32px;
 }
 
