@@ -3,10 +3,12 @@ import YieldToggleButton from "../components/YeldToggleButton";
 import IndexToggleButton from "../components/IndexToggleButton";
 import { getIndicadores, getSimulacoes } from "../services/api";
 import MaskedInput from "../components/MaskedInput";
+import Dashboard from "../components/Dashboard";
 import { Button } from "@mui/material";
 import info from "../img/info.svg";
 import "../css/style.css";
 import "../css/responsivel.css";
+import Graphic from "../components/Graphic";
 
 function HomePage() {
   const [listaSimulacao, setListaSimulacao] = useState("");
@@ -22,7 +24,7 @@ function HomePage() {
   const inputs = document.querySelectorAll("input");
   const [yType, setYType] = useState("bruto");
   const [iType, setIType] = useState("pos");
-  const [dashboardData, setDashboardData] = useState("");
+  const [dashboardData, setDashboardData] = useState([]);
 
   //---------------------------Carrega dos dados ------------------------------
   const loadData = async () => {
@@ -67,13 +69,12 @@ function HomePage() {
 
   //---------------------------funções diversas -------------------------------
 
-  async function loadFilter() {
-    setDashboardData(
-      listaSimulacao.filter(
-        (lista) =>
-          lista.tipoRendimento === yType && lista.tipoIndexacao === iType
-      )
-    );
+  function loadFilter() {
+    return listaSimulacao.filter((lista) => {
+      if (lista.tipoRendimento === yType && lista.tipoIndexacao === iType) {
+        return lista;
+      }
+    });
   }
 
   //---------------------------handleFunctions---------------------------------
@@ -107,22 +108,11 @@ function HomePage() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    loadFilter();
+    setDashboardData(loadFilter());
 
     document.getElementById("dashboard").style.display = "block";
   }
   //---------------------------------------------------------------------------
-
-  // console.log(dashboardData);
-  // function valorBruto() {
-  //   if (dashboardData == "") {
-  //     return 0;
-  //   } else {
-  //     dashboardData.map(p => p.valorFinalBruto);
-  //   }
-  // };
-  // valorBruto();
-  // console.log(valorBruto());
 
   return (
     <>
@@ -231,35 +221,9 @@ function HomePage() {
             </form>
           </div>
 
-          <div id="dashboard">
-            <h2>Resultado da Simulação</h2>
-            <div className="results">
-              <div className="card">
-                <h3>Valor Final Bruto</h3>
-                <span>R$ 15000,00</span>
-              </div>
-              <div className="card">
-                <h3>Alíquota do IR</h3>
-                {/* <span>{dashboardData[0].aliquotaIR}%</span> */}
-              </div>
-              <div className="card">
-                <h3>Valor Pago em IR</h3>
-                {/* <span>R$ {dashboardData[0].valorPagoIR}</span> */}
-              </div>
-              <div className="card">
-                <h3>Valor Final Líquido</h3>
-                {/* <span className="green">R$ {dashboardData[0].valorFinalLiquido}</span> */}
-              </div>
-              <div className="card">
-                <h3>Valor Total Investido</h3>
-                {/* <span>R$ {dashboardData[0].valorTotalInvestido}</span> */}
-              </div>
-              <div className="card">
-                <h3>Ganho Líquido</h3>
-                {/* <span className="green">R$ {dashboardData[0].ganhoLiquido}</span> */}
-              </div>
-            </div>
-            <h3 className="dashboardH3">Projeção de Valores</h3>
+          <div  id="dashboard">
+            <Dashboard prop={dashboardData} />
+            <Graphic prop={dashboardData} />
           </div>
         </div>
       </div>
