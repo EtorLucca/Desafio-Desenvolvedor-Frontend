@@ -22,7 +22,7 @@ Projeto realizado como parte de processo seletivo.
 - SPA em React JS
 - Busca/filtro de elementos no banco de dados
 - Controle de estados (useState)
-- Máscara de valores nos inputs (o que fez desnecessário a validação de campos)
+- Máscara de valores nos inputs
 - Exibição dos dados de retorno da API
 - Montagem e exibição de gráfico responsivo com retorno da API
 - Implementação de responsividade
@@ -50,7 +50,7 @@ Projeto realizado como parte de processo seletivo.
        yarn add<br>
       </code><br>
      
-- Após a instalação dos pacotes digite (no terminal da pasta API) o comando para iniciar o servidor em <code>http://localhost:5000</code><br>
+- Digite (no terminal da pasta API) o comando para iniciar o servidor em <code>http://localhost:5000</code><br>
     <code>
     npx json-server --watch db.json --port 5000
     </code><br>
@@ -64,3 +64,8 @@ Projeto realizado como parte de processo seletivo.
     yarn start<br>
     </code><br>
   Por padrão a aplicação será inicializada em <code>http://localhost:3000</code>
+  
+<h2>Comentários adcionais</h2>
+
+- A implementação da máscara nos inputs já limita a inserção a caracteres numéricos apenas, não fazendo necessária a validação dos campos.
+- Caso necessário, a implementação da validação se dá através de controle de estados e validação com regex, com possibilidade de remoção dos caracteres não numéricos.
