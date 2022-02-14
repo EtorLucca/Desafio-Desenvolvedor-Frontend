@@ -1,7 +1,7 @@
 import React from "react";
 
-function Dashboard({ prop }) {
-  let dashboardData = prop[0] ? prop[0] : {};
+function Dashboard({ data }) {
+  let dashboardData = data[0] ? data[0] : {};
 
   return (
     <>

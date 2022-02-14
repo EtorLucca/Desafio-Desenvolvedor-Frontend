@@ -13,21 +13,20 @@ function IndexToggleButton({ onChange }) {
   return (
     <ToggleButtonGroup
       id="index"
-      className="toggleButton"
       value={indexType}
       exclusive={true}
       onChange={handleChange}
       color="warning"
       sx={{
-        borderRadius: "8px",
         width: "100%",
       }}
     >
       <ToggleButton
         value="pre"
+        className="btn"
         sx={{
           borderRadius: "8px",
-          border: "none",
+          border: "1px solid black",
           padding: "10px 20px",
           marging: "0",
           width: "30%",
@@ -37,9 +36,10 @@ function IndexToggleButton({ onChange }) {
       </ToggleButton>
       <ToggleButton
         value="pos"
+        className="btn"
         sx={{
           borderRadius: "8px",
-          border: "none",
+          border: "1px solid black",
           padding: "10px 20px",
           marging: "0",
           width: "30%",
@@ -51,7 +51,7 @@ function IndexToggleButton({ onChange }) {
         value="ipca"
         sx={{
           borderRadius: "8px",
-          border: "none",
+          border: "1px solid black",
           padding: "10px 20px",
           marging: "0",
           width: "40%",

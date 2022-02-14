@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import YieldToggleButton from "../components/YeldToggleButton";
-import IndexToggleButton from "../components/IndexToggleButton";
 import { getIndicadores, getSimulacoes } from "../services/api";
-import MaskedInput from "../components/MaskedInput";
+import YieldToggleButton from "../components/YieldToggleButton";
+import IndexToggleButton from "../components/IndexToggleButton";
 import Dashboard from "../components/Dashboard";
+import NumberFormat from "react-number-format";
+import Graphic from "../components/Graphic";
 import { Button } from "@mui/material";
 import info from "../img/info.svg";
 import "../css/style.css";
 import "../css/responsivel.css";
-import Graphic from "../components/Graphic";
 
 function HomePage() {
   const [listaSimulacao, setListaSimulacao] = useState("");
@@ -22,8 +22,8 @@ function HomePage() {
   const [ipca, setIPCA] = useState("");
   const [disabled, setDisabled] = useState(true);
   const inputs = document.querySelectorAll("input");
-  const [yType, setYType] = useState("bruto");
-  const [iType, setIType] = useState("pos");
+  const [yieldType, setYieldType] = useState("bruto");
+  const [indexType, setIndexType] = useState("pos");
   const [dashboardData, setDashboardData] = useState([]);
 
   //---------------------------Carrega dos dados ------------------------------
@@ -71,7 +71,10 @@ function HomePage() {
 
   function loadFilter() {
     return listaSimulacao.filter((lista) => {
-      if (lista.tipoRendimento === yType && lista.tipoIndexacao === iType) {
+      if (
+        lista.tipoRendimento === yieldType &&
+        lista.tipoIndexacao === indexType
+      ) {
         return lista;
       }
     });
@@ -86,12 +89,12 @@ function HomePage() {
     });
   }
 
-  function handleYType(type) {
-    setYType(type);
+  function handleYieldType(type) {
+    setYieldType(type);
   }
 
-  function handleIType(type) {
-    setIType(type);
+  function handleIndexType(type) {
+    setIndexType(type);
   }
 
   function handleClear() {
@@ -127,27 +130,40 @@ function HomePage() {
                   Rendimento
                   <img className="info" src={info} alt="aporte info" />
                 </h4>
-                <YieldToggleButton onChange={handleYType} />
+                <YieldToggleButton onChange={handleYieldType} />
                 <label className="label" htmlFor="aporte">
                   Aporte Inicial
                 </label>
-                <MaskedInput
+                <NumberFormat
+                  type="text"
                   name="inicial"
                   id="aporteInicial"
-                  mask="R$ 9.999,99"
+                  className="textField"
                   value={aportes.inicial}
                   onChange={handleChange}
+                  displayType="input"
+                  decimalScale={2}
+                  thousandsGroupStyle="thousand"
+                  thousandSeparator={false}
+                  decimalSeparator=","
+                  placeholder="R$ 9999,99"
+                  prefix={"R$ "}
                 />
 
                 <label className="label" htmlFor="prazo">
-                  Prazo em Meses
+                  Prazo (em meses)
                 </label>
-                <MaskedInput
+                <NumberFormat
                   name="prazo"
                   id="prazo"
-                  mask=""
+                  className="textField"
                   value={aportes.prazo}
                   onChange={handleChange}
+                  displayType="input"
+                  decimalScale={0}
+                  thousandsGroupStyle="thousand"
+                  thousandSeparator={true}
+                  placeholder="12"
                 />
 
                 <label className="label" htmlFor="ipca">
@@ -174,27 +190,41 @@ function HomePage() {
                   Tipos de indexação
                   <img className="info" src={info} alt="aporte info" />
                 </h4>
-                <IndexToggleButton id="index" onChange={handleIType} />
+                <IndexToggleButton id="index" onChange={handleIndexType} />
                 <label className="label" htmlFor="aporte">
                   Aporte Mensal
                 </label>
-                <MaskedInput
+                <NumberFormat
                   name="mensal"
                   id="aporteMensal"
-                  mask="R$ 9.999,99"
+                  className="textField"
                   value={aportes.mensal}
                   onChange={handleChange}
+                  displayType="input"
+                  decimalScale={2}
+                  thousandsGroupStyle="thousand"
+                  thousandSeparator={false}
+                  decimalSeparator=","
+                  placeholder="R$ 9999,99"
+                  prefix={"R$ "}
                 />
 
                 <label className="label" htmlFor="prazo">
                   Rentabilidade
                 </label>
-                <MaskedInput
+                <NumberFormat
                   name="rentabilidade"
                   id="rentabilidade"
-                  mask="99 %"
+                  className="textField"
                   value={aportes.rentabilidade}
                   onChange={handleChange}
+                  displayType="input"
+                  decimalScale={2}
+                  thousandsGroupStyle="thousand"
+                  thousandSeparator={false}
+                  decimalSeparator=","
+                  placeholder="20%"
+                  suffix="%"
                 />
 
                 <label className="label" htmlFor="cdi">
@@ -221,9 +251,9 @@ function HomePage() {
             </form>
           </div>
 
-          <div  id="dashboard">
-            <Dashboard prop={dashboardData} />
-            <Graphic prop={dashboardData} />
+          <div id="dashboard">
+            <Dashboard data={dashboardData} />
+            <Graphic data={dashboardData} />
           </div>
         </div>
       </div>

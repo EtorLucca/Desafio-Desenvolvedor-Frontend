@@ -13,21 +13,20 @@ function YieldToggleButton({ onChange }) {
   return (
     <ToggleButtonGroup
       id="yield"
-      className="toggleButton"
       value={yieldType}
       exclusive={true}
       onChange={handleChange}
       color="warning"
       sx={{
-        borderRadius: "8px",
         width: "100%",
       }}
     >
       <ToggleButton
         value="bruto"
+        className="btn"
         sx={{
           borderRadius: "8px",
-          border: "none",
+          border: "1px solid black",
           padding: "10px 20px",
           marging: "0",
           width: "50%",
@@ -37,9 +36,10 @@ function YieldToggleButton({ onChange }) {
       </ToggleButton>
       <ToggleButton
         value="liquido"
+        className="btn"
         sx={{
           borderRadius: "8px",
-          border: "none",
+          border: "1px solid black",
           padding: "10px 20px",
           marging: "0",
           width: "50%",

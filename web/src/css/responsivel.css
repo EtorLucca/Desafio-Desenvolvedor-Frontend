@@ -28,12 +28,16 @@
     width: 100%;
   }
 
+  #dashboardH3{
+    margin-top: 16px;
+  }
+
   .label{
     font-size: 1.2rem;
   }
 
   h3{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   h4{
@@ -71,7 +75,7 @@
   }
 
   .label{
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   #dashboard h2{
@@ -80,7 +84,7 @@
   }
 
   h3{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin: 10px 0 15px 0;
     text-align: center;
   }
@@ -102,11 +106,15 @@
 
   .card{
     margin: 10px 0 0 0;
-    min-width: 300px;
+    min-width: 250px;
+  }
+
+  .card:last-child{
+    margin: 10px 0 16px 0;
   }
 
   span{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 }
 
