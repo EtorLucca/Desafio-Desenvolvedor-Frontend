@@ -29,7 +29,7 @@ Projeto realizado como parte de processo seletivo.
 
 <h2>Como acessar e executar o Projeto</h2>
 
-- Clonar o repositório usando o comando:
+- Clonar o repositório usando o comando:<br>
 <code>git clone https://github.com/EtorLucca/Desafio-Desenvolvedor-Frontend.git</code>
 
 - Instalar as dependências do projeto:
