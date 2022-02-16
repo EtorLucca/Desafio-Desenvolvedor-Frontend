@@ -3,10 +3,10 @@ import ApexCharts from "apexcharts";
 import "../css/style.css";
 
 function Graphic({ data }) {
-  let dashboardData = data[0] ? data[0] : {};
+  let dashboardData = data ? data : {};
   let graphicValues = dashboardData.graficoValores;
-  let graphicDataComAporte = graphicValues ? graphicValues.comAporte : {};
-  let graphicDataSemAporte = graphicValues ? graphicValues.semAporte : {};
+  let graphicDataComAporte = graphicValues ? Object.values(graphicValues.comAporte) : {};
+  let graphicDataSemAporte = graphicValues ? Object.values(graphicValues.semAporte) : {};
 
   const element = document.getElementById("graphic");
   
@@ -15,39 +15,11 @@ function Graphic({ data }) {
     series: [
       {
         name: "Sem Aporte",
-        data: [
-          // 1000, 1003.27, 1006.56, 1009.85, 1013.16, 1016.48, 1019.8, 1023.14,
-          // 1026.49, 1029.85, 1033.22,
-          graphicDataSemAporte[0],
-          graphicDataSemAporte[1],
-          graphicDataSemAporte[2],
-          graphicDataSemAporte[3],
-          graphicDataSemAporte[4],
-          graphicDataSemAporte[5],
-          graphicDataSemAporte[6],
-          graphicDataSemAporte[7],
-          graphicDataSemAporte[8],
-          graphicDataSemAporte[9],
-          graphicDataSemAporte[10],
-        ],
+        data: graphicDataSemAporte,
       },
       {
         name: "Com Aporte",
-        data: [
-          // 1000, 1103.27, 1206.89, 1310.84, 1415.13, 1519.76, 1624.74, 1730.05,
-          // 1835.72, 1941.73, 2048.08,
-          graphicDataComAporte[0],
-          graphicDataComAporte[1],
-          graphicDataComAporte[2],
-          graphicDataComAporte[3],
-          graphicDataComAporte[4],
-          graphicDataComAporte[5],
-          graphicDataComAporte[6],
-          graphicDataComAporte[7],
-          graphicDataComAporte[8],
-          graphicDataComAporte[9],
-          graphicDataComAporte[10],
-        ],
+        data: graphicDataComAporte,
       },
     ],
     chart: {

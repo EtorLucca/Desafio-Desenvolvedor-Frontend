@@ -70,19 +70,44 @@ function HomePage() {
   //---------------------------funções diversas -------------------------------
 
   function loadFilter() {
-    return listaSimulacao.filter((lista) => {
+    let load = {};
+    listaSimulacao.forEach((lista) => {
       if (
         lista.tipoRendimento === yieldType &&
         lista.tipoIndexacao === indexType
       ) {
-        return lista;
+        load = lista;
       }
     });
+
+    return load;
+  }
+
+  function formatReal(int) {
+    let v = int;
+
+    v = v.replace(/\D/g, ""); // permite digitar apenas números
+    v = v.replace(/(\d{1})(\d{14})$/, "$1.$2"); // coloca ponto antes dos últimos 14 dígitos
+    v = v.replace(/(\d{1})(\d{11})$/, "$1.$2"); // coloca ponto antes dos últimos 11 dígitos
+    v = v.replace(/(\d{1})(\d{8})$/, "$1.$2"); // coloca ponto antes dos últimos 8 dígitos
+    v = v.replace(/(\d{1})(\d{5})$/, "$1.$2"); // coloca ponto antes dos últimos 5 dígitos
+    v = v.replace(/(\d{1})(\d{1,2})$/, "$1,$2"); // coloca virgula antes dos últimos 2 dígitos
+    v = v.replace(/([0-9])/, "R$ $1"); // coloca R$ antes de todos os números
+
+    return v;
   }
 
   //---------------------------handleFunctions---------------------------------
 
   function handleChange(e) {
+    let formatedValue = formatReal(e.target.value)
+    setAportes({
+      ...aportes,
+      [e.target.name]: formatedValue,
+    });
+  }
+
+  function handleInput(e) {
     setAportes({
       ...aportes,
       [e.target.name]: e.target.value,
@@ -134,35 +159,27 @@ function HomePage() {
                 <label className="label" htmlFor="aporte">
                   Aporte Inicial
                 </label>
-                <NumberFormat
+
+                <input
                   type="text"
                   name="inicial"
                   id="aporteInicial"
                   className="textField"
                   value={aportes.inicial}
                   onChange={handleChange}
-                  displayType="input"
-                  decimalScale={2}
-                  thousandsGroupStyle="thousand"
-                  thousandSeparator={false}
-                  decimalSeparator=","
-                  placeholder="R$ 9999,99"
-                  prefix={"R$ "}
+                  placeholder="R$ 0,00"
                 />
 
                 <label className="label" htmlFor="prazo">
                   Prazo (em meses)
                 </label>
-                <NumberFormat
+                <input
+                  type="number"
                   name="prazo"
                   id="prazo"
                   className="textField"
                   value={aportes.prazo}
-                  onChange={handleChange}
-                  displayType="input"
-                  decimalScale={0}
-                  thousandsGroupStyle="thousand"
-                  thousandSeparator={true}
+                  onChange={handleInput}
                   placeholder="12"
                 />
 
@@ -194,19 +211,14 @@ function HomePage() {
                 <label className="label" htmlFor="aporte">
                   Aporte Mensal
                 </label>
-                <NumberFormat
+                <input
+                  type="text"
                   name="mensal"
                   id="aporteMensal"
                   className="textField"
                   value={aportes.mensal}
                   onChange={handleChange}
-                  displayType="input"
-                  decimalScale={2}
-                  thousandsGroupStyle="thousand"
-                  thousandSeparator={false}
-                  decimalSeparator=","
-                  placeholder="R$ 9999,99"
-                  prefix={"R$ "}
+                  placeholder="R$ 0,00"
                 />
 
                 <label className="label" htmlFor="prazo">
@@ -217,7 +229,7 @@ function HomePage() {
                   id="rentabilidade"
                   className="textField"
                   value={aportes.rentabilidade}
-                  onChange={handleChange}
+                  onChange={handleInput}
                   displayType="input"
                   decimalScale={2}
                   thousandsGroupStyle="thousand"

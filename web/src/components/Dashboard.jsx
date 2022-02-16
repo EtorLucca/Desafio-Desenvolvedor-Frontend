@@ -1,7 +1,7 @@
 import React from "react";
 
 function Dashboard({ data }) {
-  let dashboardData = data[0] ? data[0] : {};
+  let dashboardData = data ? data : {};
 
   return (
     <>
