@@ -5,10 +5,10 @@ Projeto realizado como parte de processo seletivo.
 
 <h2>Tecnologias/Ferramentas utilizadas</h2>
 
-- Node JS
+- Node JS v16.13.1
 - Axios
-- API (banco de dados JSON - fornecido)
-- Bibliotecas
+- Bibliotecas / API's
+    - Banco de dados JSON - fornecido
     - React JS
     - Material UI
     - ApexCharts
@@ -65,7 +65,7 @@ Projeto realizado como parte de processo seletivo.
     </code><br>
   Por padrão a aplicação será inicializada em <code>http://localhost:3000</code>
   
-<h2>Comentários adcionais</h2>
+<h2>Comentários adicionais</h2>
 
 - A implementação da máscara nos inputs já limita a inserção a caracteres numéricos apenas, não fazendo necessária a validação dos campos.
 - Caso necessário, a implementação da validação se dá através de controle de estados e validação com regex, com possibilidade de remoção dos caracteres não numéricos.
