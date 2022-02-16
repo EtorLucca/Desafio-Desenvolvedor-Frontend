@@ -5,10 +5,10 @@ Projeto realizado como parte de processo seletivo.
 
 <h2>Tecnologias/Ferramentas utilizadas</h2>
 
-- Node JS
+- Node JS v16.13.1
 - Axios
-- API (banco de dados JSON - fornecido)
-- Bibliotecas
+- Bibliotecas / API's
+    - Banco de dados JSON - fornecido
     - React JS
     - Material UI
     - ApexCharts
