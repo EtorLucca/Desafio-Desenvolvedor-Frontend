@@ -2,11 +2,12 @@
   "name": "desafio-fake-api",
   "version": "1.0.0",
   "description": "Api com dados fakes para o desafio proposto pela EQI",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
+
   },
-  "author": "EQI Tech",
+  "author": "Etor Lucca",
   "license": "ISC",
   "dependencies": {
     "json-server": "^0.17.0"
