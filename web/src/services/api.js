@@ -1,13 +1,13 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://apisimuladordeinvestimentos.glitch.me",
+  baseURL: "",
 });
 
 export const getIndicadores = async () => {
-  return api.get("/indicadores");
+  return await api.get("https://apisimuladorderendimentos.glitch.me/indicadores");
 };
 
 export const getSimulacoes = async () => {
-  return api.get("/simulacoes");
+  return await api.get("https://apisimuladorderendimentos.glitch.me/simulacoes");
 };
