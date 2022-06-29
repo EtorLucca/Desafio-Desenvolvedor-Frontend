@@ -1,7 +1,7 @@
 <h1>Desafio Desenvolvedor Front-end</h1>
 
-Projeto realizado como parte de processo seletivo.
-<a href="https://busca-repositorio.vercel.app/">Visualizar Projeto</a>
+Projeto realizado como parte de processo seletivo. <br>
+<a href="https://desafio-desenvolvedor-frontend.vercel.app/">Visualizar Projeto</a> *O site pode demorar alguns segundos para carregar os valores de CDI e IPCA do servidor.
 <hr>
 
 <h2>Tecnologias/Ferramentas utilizadas</h2>
